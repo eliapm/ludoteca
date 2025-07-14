@@ -1,0 +1,38 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --color-accent: #6664ef;
+}
+
+body {
+  margin: 0;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+    :root header{
+  background-color: var(--color-accent);
+}
+
+}
+
+.container {
+  margin: 20px;
+}
+
+.newButton {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.newButton button {
+  background-color: var(--color-accent);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
