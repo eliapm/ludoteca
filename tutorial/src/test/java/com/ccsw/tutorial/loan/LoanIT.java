@@ -40,9 +40,6 @@ public class LoanIT {
     private static final int TOTAL_LOANS = 6;
     private static final int PAGE_SIZE = 5;
 
-    private static final String GAME_ID_PARAM = "idGame";
-    private static final String CLIENT_ID_PARAM = "idClient";
-
     @LocalServerPort
     private int port;
 
@@ -67,7 +64,7 @@ public class LoanIT {
 
     @Test
     public void findSecondPageWithFiveSizeShouldReturnLastResult() {
-        int elements_count = TOTAL_LOANS - PAGE_SIZE;
+        int elementsCount = TOTAL_LOANS - PAGE_SIZE;
 
         LoanSearchDto searchDto = new LoanSearchDto();
         searchDto.setPageable(new PageableRequest(1, PAGE_SIZE));
@@ -76,7 +73,7 @@ public class LoanIT {
 
         assertNotNull(response);
         assertEquals(TOTAL_LOANS, response.getBody().getTotalElements());
-        assertEquals(elements_count, response.getBody().getContent().size());
+        assertEquals(elementsCount, response.getBody().getContent().size());
     }
 
     @Test
@@ -207,9 +204,6 @@ public class LoanIT {
         searchDto.setPageable(pageableRequest);
 
         ResponseEntity<ResponsePage<LoanDto>> response = restTemplate.exchange(LOCALHOST + port + SERVICE_PATH, HttpMethod.POST, new HttpEntity<>(searchDto), responseTypePage);
-        //        assertThrows(IllegalReservationException.class, () -> {
-        //            response.getStatusCode();
-        //        });
 
         assertEquals(TOTAL_LOANS, response.getBody().getTotalElements());
 

@@ -145,17 +145,6 @@ export default function CreateLoan(props: Props) {
                                         endDate: newEndDate,
                                     });
                                     handleDateChange(form.startDate, newEndDate);
-                                    // const periodStartDate = moment(form.startDate);
-                                    // const periodEndDate = moment(newEndDate);
-                                    // const period = periodEndDate.diff(periodStartDate, 'days');
-                                    // if (form.startDate > newEndDate) {
-                                    //     setDateError("La fecha de devolución no puede ser anterior a la fecha de inicio.");
-                                    // } else if (period > 14) {
-                                    //     setDateError("El período de préstamo no puede ser superior a 14 días.");
-                                    // }
-                                    // else {
-                                    //     setDateError("");
-                                    // }
                                 }}
                                 slotProps={{
                                     textField: {

@@ -27,6 +27,8 @@ public class LoanTest {
     @InjectMocks
     private LoanServiceImpl loanService;
 
+    private static final int TOTAL_LOANS = 6;
+
     @Test
     public void findAllShouldReturnAllLoans() {
         List<Loan> list = new ArrayList<>();
@@ -67,11 +69,6 @@ public class LoanTest {
     public static final LocalDate START_DATE = LocalDate.parse("2025-07-07");
     public static final LocalDate BEFORE_END_DATE = LocalDate.parse("2025-07-03");
     public static final LocalDate EXCEEDED_END_DATE = LocalDate.parse("2025-07-27");
-
-    @Test
-    public void saveLoanShouldSave() {
-
-    }
 
     @Test
     public void saveLoanEndDateDayBeforeStartDateShouldReturnException() {

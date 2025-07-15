@@ -20,6 +20,7 @@ import { ConfirmDialog } from "../../components/ConfirmDialog";
 import type { BackError } from "../../types/appTypes";
 import type { Client } from "../../types/Client";
 import type { Game } from "../../types/Game";
+import moment from "moment";
 
 export const Loan = () => {
     const [loans, setLoans] = useState<LoanModel[]>([]);
@@ -35,7 +36,7 @@ export const Loan = () => {
     const filters = {
         idGame: filterTitle ? Number(filterTitle) : undefined,
         idClient: filterClient ? Number(filterClient) : undefined,
-        date: filterDate ? filterDate.toISOString().split('T')[0] : undefined,
+        date: filterDate ? moment(filterDate).format("YYYY-MM-DD") : undefined,
         pageNumber,
         pageSize,
     };
@@ -101,14 +102,6 @@ export const Loan = () => {
             })
             .catch((err) => console.log(err));
     };
-
-
-    // useEffect(() => {
-    //     if (data) {
-    //         setLoans(data.content);
-    //         setTotal(data.totalElements);
-    //     }
-    // }, [data]);
 
 
     useEffect(() => {
